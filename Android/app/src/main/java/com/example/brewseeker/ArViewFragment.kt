@@ -71,7 +71,7 @@ class ArViewFragment: Fragment() {
                 Log.e("Main", e.toString())
             }
         }else{
-            showToast("Please insert a playername!")
+            showToast("something went wrong")
         }
     }
     fun showToast(message: String) {
