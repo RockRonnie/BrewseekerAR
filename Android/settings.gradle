@@ -1,2 +1,4 @@
 rootProject.name='Brewseeker'
 include ':app'
+include ':unityLibrary'
+project(':unityLibrary').projectDir=new File('..\\Unity\\unityLibrary')

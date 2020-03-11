@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Brewseeker</string>
+    <string name="access_token">pk.eyJ1IjoiYXRob2xvcyIsImEiOiJjazcxdHhuZDIwMHJsM2dvZm50M25rMnh6In0.D_F0hHFTdW7814dJpzbYRA</string>
+    <string name="mapText">Mapbox</string>
+    <string name="start_navigating">Start Navigating</string>
+    <string name="ar_fragment">AR FRAGMENT</string>
+    <string name="map">Map</string>
+    <string name="ar">AR</string>
+    <string name="start_the_game">Start the game!</string>
+    <string name="player_name">Player name</string>
+    <string name="game_view_content_description">Game view</string>
 </resources>
