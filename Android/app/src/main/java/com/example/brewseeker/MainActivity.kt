@@ -28,17 +28,15 @@ class MainActivity : AppCompatActivity(), ArViewFragment.UnityRunning {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         Mapbox.getInstance(this, getString(R.string.access_token))
-
         handleIntent(intent)
         toggleButton.setOnClickListener {
             changeFragment(state)
         }
-        /*if (savedInstanceState == null) {
+        if (savedInstanceState == null) {
             changeFragment(state)
-        }*/
-        changeFragment("map")
+        }
+
     }
     private fun toggleState(newState: String){
         state = newState
