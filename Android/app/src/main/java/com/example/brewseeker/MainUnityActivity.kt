@@ -7,11 +7,12 @@ import android.util.Log
 import android.widget.Button
 import android.widget.FrameLayout
 import androidx.core.content.ContextCompat.startActivity
+import androidx.fragment.app.Fragment
 import com.example.plugin.OverrideUnityActivity
 import com.unity3d.player.UnityPlayer
 import java.util.jar.Attributes
 
-class MainUnityActivity : OverrideUnityActivity() {
+class MainUnityActivity :  OverrideUnityActivity() {
     private var playername: String? = "Noplayer"
     private var myUserStatus: String = "Nevahööd"
     // Setup activity layout
@@ -59,22 +60,19 @@ class MainUnityActivity : OverrideUnityActivity() {
     }
     fun addControlsToUnityFrame() {
         val layout: FrameLayout = mUnityPlayer
-        run {
+        /*run {
             val myButton = Button(this)
             myButton.text = "Map"
             myButton.x = 0f
             myButton.y = 0f
-            myButton.setOnClickListener { sendCommand("map") }
             layout.addView(myButton, 200, 200)
-        }
+        }*/
         run {
             val myButton = Button(this)
-            myButton.text = "change playername"
+            myButton.text = "MAP"
             myButton.x = 800f
             myButton.y = 0f
-            myButton.setOnClickListener {
-                Log.d("button",playername)
-                changePlayerName() }
+            myButton.setOnClickListener { sendCommand("map") }
             layout.addView(myButton, 300, 200)
         }
     }

@@ -42,9 +42,10 @@ class ArViewFragment: Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        startButton.setOnClickListener{
-            startGame()
-        }
+        startAR()
+        /*startButton.setOnClickListener{
+            startAR()
+        }*/
     }
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -54,12 +55,7 @@ class ArViewFragment: Fragment() {
             throw ClassCastException(context.toString() + " must implement UnityRUnning.")
         }
     }
-    private fun validate(): Boolean {
-        return playerInput.text != null
-    }
-    private fun startGame(){
-        if(validate()){
-            Log.d("playerInput", playerInput.text.toString())
+    private fun startAR(){
             try {
                 Log.d("main", "Starting unity")
                 listener.unityIsRunning(true)
@@ -70,9 +66,6 @@ class ArViewFragment: Fragment() {
             }catch(e: Exception){
                 Log.e("Main", e.toString())
             }
-        }else{
-            showToast("something went wrong")
-        }
     }
     fun showToast(message: String) {
         val text: CharSequence = message

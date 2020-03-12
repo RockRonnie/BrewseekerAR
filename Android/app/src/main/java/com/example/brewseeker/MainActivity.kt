@@ -61,31 +61,6 @@ class MainActivity : AppCompatActivity(), ArViewFragment.UnityRunning {
     }
     fun handleIntent(intent: Intent?) {
         if (intent == null || intent.extras == null) return
-        if (intent.extras!!.containsKey("setUserStatus")) {
-
-            when (intent.extras!!.getString("setUserStatus")) {
-                "Completed" -> {
-                    toggleState("map")
-                    status.text = "Player status: Game completed!"
-                    arViewFragment = ArViewFragment.newInstance("Player status: Game completed!")
-                    myManager = supportFragmentManager
-                    myTransaction = myManager.beginTransaction()
-                    myTransaction.replace(R.id.root_frame, arViewFragment)
-                    myTransaction.commit()}
-                "Trying" -> {
-                    toggleState("map")
-                    status.text = "Player status: Still trying yet failing!"
-                    arViewFragment = ArViewFragment.newInstance("Player status: Still trying yet failing!")
-                    myManager = supportFragmentManager
-                    myTransaction = myManager.beginTransaction()
-                    myTransaction.replace(R.id.root_frame, arViewFragment)
-                    myTransaction.commit()
-                }
-                else -> {
-                    showToast("No status")
-                }
-            }
-        }
         if(intent.extras!!.containsKey("newCommand")){
             when (intent.extras!!.getString("newCommand")){
                 "map" -> {changeFragment("map")}
