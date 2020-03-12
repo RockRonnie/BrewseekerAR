@@ -13,7 +13,7 @@ import com.unity3d.player.UnityPlayer
 import java.util.jar.Attributes
 
 class MainUnityActivity :  OverrideUnityActivity() {
-    private var playername: String? = "Noplayer"
+    private var infofrommain: String? = "No info"
     private var myUserStatus: String = "Nevahööd"
     // Setup activity layout
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,7 +36,7 @@ class MainUnityActivity :  OverrideUnityActivity() {
         }
         if (intent.extras!!.containsKey("playerName")) {
             Log.d("playername extra",intent.extras!!.getString("playerName").toString())
-            playername = intent.extras!!.getString("playerName")
+            infofrommain = intent.extras!!.getString("playerName")
         }
     }
 
