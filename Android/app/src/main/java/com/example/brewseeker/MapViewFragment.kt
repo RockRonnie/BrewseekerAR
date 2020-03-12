@@ -243,7 +243,7 @@ class MapViewFragment: Fragment(), OnMapReadyCallback, PermissionsListener {
 
                position = CameraPosition.Builder()
                     .target(LatLng(originPoint.latitude(), originPoint.longitude()))
-                    .zoom(12.0)
+                    .zoom(15.0)
                     .build()
             }
         } else {
