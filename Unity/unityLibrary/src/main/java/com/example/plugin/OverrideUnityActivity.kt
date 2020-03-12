@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.FrameLayout
 import com.unity3d.player.UnityPlayerActivity
 
+
 abstract class OverrideUnityActivity : UnityPlayerActivity() {
 
     protected abstract fun showMainActivity()

@@ -1,6 +1,7 @@
 package com.example.brewseeker
 
 import android.content.Intent
+import android.graphics.Color
 import android.location.Location
 import android.os.Bundle
 import android.util.Log
@@ -60,24 +61,19 @@ class MainUnityActivity :  OverrideUnityActivity() {
     }
     fun addControlsToUnityFrame() {
         val layout: FrameLayout = mUnityPlayer
-        /*run {
-            val myButton = Button(this)
-            myButton.text = "Map"
-            myButton.x = 0f
-            myButton.y = 0f
-            layout.addView(myButton, 200, 200)
-        }*/
         run {
             val myButton = Button(this)
             myButton.text = "MAP"
-            myButton.x = 800f
-            myButton.y = 0f
+            myButton.setBackgroundResource(R.drawable.mybutton)
+            myButton.setTextColor(Color.WHITE)
+            myButton.x = 890f
+            myButton.y = 1800f
             myButton.setOnClickListener { sendCommand("map") }
-            layout.addView(myButton, 300, 200)
+            layout.addView(myButton, 200, 100)
         }
     }
-    fun changePlayerName(){
-        UnityPlayer.UnitySendMessage("PlayerName","changeName",playername.toString())
+    fun sendStufftoUnity(){
+        UnityPlayer.UnitySendMessage("PlayerName","changeName",infofrommain.toString())
     }
 
 }
