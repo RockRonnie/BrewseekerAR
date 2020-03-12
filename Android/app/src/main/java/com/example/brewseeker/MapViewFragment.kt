@@ -126,8 +126,6 @@ class MapViewFragment: Fragment(), OnMapReadyCallback, PermissionsListener {
             it.addSource(vectorSource)
         }
 
-
-
         map.addOnMapClickListener { point ->
             destinationMarker?.let{
                 map.removeMarker(it)
@@ -151,6 +149,7 @@ class MapViewFragment: Fragment(), OnMapReadyCallback, PermissionsListener {
             val pixel = map.projection.toScreenLocation(it)
             val features = map.queryRenderedFeatures(pixel)
 
+
             // Get the first feature within the list if one exist
             if (features.isNotEmpty()) {
                 val feature = features[0]
@@ -159,8 +158,12 @@ class MapViewFragment: Fragment(), OnMapReadyCallback, PermissionsListener {
                 val placeName = feature.getStringProperty("name")
                 val placeDesc = feature.getStringProperty("description")
 
-                Toast.makeText(ctx, "Place: $placeName", Toast.LENGTH_LONG).show()
-                Toast.makeText(ctx, "Description: $placeDesc", Toast.LENGTH_LONG).show()
+                if(placeName != null){
+                    Toast.makeText(ctx, "Place: $placeName", Toast.LENGTH_LONG).show()
+                    Toast.makeText(ctx, "Description: $placeDesc", Toast.LENGTH_LONG).show()
+                } else {
+                    Toast.makeText(ctx, "Cannot show Point, please try again", Toast.LENGTH_SHORT)
+                }
 
                 //Working on Info Window for the app
                 /**
@@ -235,9 +238,7 @@ class MapViewFragment: Fragment(), OnMapReadyCallback, PermissionsListener {
         }
     }
 
-
-
-    //Draw the path from OriginPoint to destiantionPoint
+    //Draw the path from originPoint to destinationPoint
     private fun getRoute(origin: Point, destination: Point) {
 
         Mapbox.getAccessToken()?.let {
