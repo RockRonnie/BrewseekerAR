@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.content.Intent
 import android.graphics.Color
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
@@ -11,6 +12,7 @@ import android.widget.Toast
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.mapbox.mapboxsdk.Mapbox
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.ar_fragment.*
 
 
@@ -21,7 +23,6 @@ class MainActivity : AppCompatActivity(), ArViewFragment.UnityRunning {
     private lateinit var myTransaction: FragmentTransaction
 
     var isUnityLoaded = false
-    lateinit var toggle: Button
     private var state: String = "map"
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,17 +32,17 @@ class MainActivity : AppCompatActivity(), ArViewFragment.UnityRunning {
         Mapbox.getInstance(this, getString(R.string.access_token))
 
         handleIntent(intent)
-        toggle = findViewById<Button>(R.id.toggleButton)
-        toggle.setOnClickListener {
+        toggleButton.setOnClickListener {
             changeFragment(state)
         }
-        if (savedInstanceState == null) {
+        /*if (savedInstanceState == null) {
             changeFragment(state)
-        }
+        }*/
+        changeFragment("map")
     }
     private fun toggleState(newState: String){
         state = newState
-        toggle.text = newState
+        toggleButton.text = newState
     }
     private fun changeFragment(myState: String){
         when(myState){
@@ -74,6 +75,7 @@ class MainActivity : AppCompatActivity(), ArViewFragment.UnityRunning {
                 }
             }
         }
+        Log.d("main", "Intent handled")
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)

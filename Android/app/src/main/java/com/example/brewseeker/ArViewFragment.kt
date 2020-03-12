@@ -37,15 +37,11 @@ class ArViewFragment: Fragment() {
         val view = inflater.inflate(R.layout.ar_fragment ,container, false )
         val model = arguments!!.getSerializable(AR)
         Log.d("Status text",model.toString())
-        view.status.text = model.toString()
         return view
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         startAR()
-        /*startButton.setOnClickListener{
-            startAR()
-        }*/
     }
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -60,7 +56,6 @@ class ArViewFragment: Fragment() {
                 Log.d("main", "Starting unity")
                 listener.unityIsRunning(true)
                 val intent = Intent(ctx, MainUnityActivity::class.java)
-                intent.putExtra("playerName", playerInput.text.toString())
                 intent.flags = Intent.FLAG_ACTIVITY_REORDER_TO_FRONT
                 startActivityForResult(intent, 1)
             }catch(e: Exception){
