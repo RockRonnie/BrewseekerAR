@@ -29,8 +29,6 @@ class MainActivity : AppCompatActivity(), ArViewFragment.UnityRunning {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        Mapbox.getInstance(this, getString(R.string.access_token))
-
         handleIntent(intent)
         toggleButton.setOnClickListener {
             changeFragment(state)
