@@ -10,6 +10,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
+import com.mapbox.mapboxsdk.Mapbox
 import kotlinx.android.synthetic.main.ar_fragment.*
 
 
@@ -26,6 +27,9 @@ class MainActivity : AppCompatActivity(), ArViewFragment.UnityRunning {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        Mapbox.getInstance(this, getString(R.string.access_token))
+
         handleIntent(intent)
         toggle = findViewById<Button>(R.id.toggleButton)
         toggle.setOnClickListener {
