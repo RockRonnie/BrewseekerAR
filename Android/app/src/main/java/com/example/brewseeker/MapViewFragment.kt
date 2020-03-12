@@ -79,6 +79,7 @@ class MapViewFragment: Fragment(), OnMapReadyCallback, PermissionsListener {
         savedInstanceState: Bundle?
     ): View? {
         ctx = activity as Context
+        Mapbox.getInstance(ctx, getString(R.string.access_token))
         return inflater.inflate(R.layout.mapview_fragment, container, false)
     }
 
