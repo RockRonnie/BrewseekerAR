@@ -35,7 +35,6 @@ class MainActivity : AppCompatActivity(), ArViewFragment.UnityRunning {
         if (savedInstanceState == null) {
             changeFragment(state)
         }
-
     }
     private fun toggleState(newState: String){
         state = newState
@@ -72,7 +71,7 @@ class MainActivity : AppCompatActivity(), ArViewFragment.UnityRunning {
                 }
             }
         }
-        Log.d("main", "Intent handled")
+        //Log.d("main", "Intent handled")
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)

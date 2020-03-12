@@ -20,7 +20,6 @@ class MainUnityActivity :  OverrideUnityActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         addControlsToUnityFrame()
-        val intent: Intent = intent
         handleIntent(intent)
     }
 

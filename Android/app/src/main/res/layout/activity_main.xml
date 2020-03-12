@@ -18,6 +18,7 @@
 
     <Button
         android:id="@+id/toggleButton"
+        android:textColor="@color/mapboxWhite"
         android:layout_width="67dp"
         android:layout_height="48dp"
         android:text="@string/ar"
