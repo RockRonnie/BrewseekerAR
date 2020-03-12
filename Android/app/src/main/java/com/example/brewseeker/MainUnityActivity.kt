@@ -76,8 +76,4 @@ class MainUnityActivity :  OverrideUnityActivity() {
             layout.addView(myButton, 300, 200)
         }
     }
-    fun changePlayerName(){
-        UnityPlayer.UnitySendMessage("PlayerName","changeName",playername.toString())
-    }
-
 }
