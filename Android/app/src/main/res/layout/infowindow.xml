@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingStart="8dp"
+    android:paddingLeft="8dp"
+    android:paddingEnd="8dp"
+    android:paddingRight="8dp"
+    android:paddingBottom="6dp"
+    android:id="@+id/infowindow">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+        <RelativeLayout
+            android:id="@+id/text_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:text="Tonkutsu Ramen" />
+
+            <TextView
+                android:id="@+id/desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title"
+                android:layout_marginTop="2dp"
+                android:text="Japanese"
+                android:textSize="12sp"
+                android:textStyle="italic" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</RelativeLayout>

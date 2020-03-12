@@ -75,5 +75,4 @@ class MainUnityActivity :  OverrideUnityActivity() {
     fun sendStufftoUnity(){
         UnityPlayer.UnitySendMessage("PlayerName","changeName",infofrommain.toString())
     }
-
 }
