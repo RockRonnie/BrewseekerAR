@@ -23,6 +23,9 @@ import com.mapbox.geojson.Point
 import com.mapbox.mapboxsdk.Mapbox
 import com.mapbox.mapboxsdk.annotations.Marker
 import com.mapbox.mapboxsdk.annotations.MarkerOptions
+import com.mapbox.mapboxsdk.camera.CameraPosition
+import com.mapbox.mapboxsdk.camera.CameraUpdateFactory
+import com.mapbox.mapboxsdk.geometry.LatLng
 import com.mapbox.mapboxsdk.location.LocationComponent
 import com.mapbox.mapboxsdk.location.LocationComponentActivationOptions
 import com.mapbox.mapboxsdk.location.LocationComponentOptions
@@ -64,6 +67,7 @@ class MapViewFragment: Fragment(), OnMapReadyCallback, PermissionsListener {
     private lateinit var startButton: Button
 
     private lateinit var locationComponent: LocationComponent
+    private lateinit var position: CameraPosition
 
     //variables for locations
     private lateinit var originPoint: Point
@@ -128,6 +132,7 @@ class MapViewFragment: Fragment(), OnMapReadyCallback, PermissionsListener {
             }
             enableLocationComponent(it)
             it.addSource(vectorSource)
+            map.animateCamera(CameraUpdateFactory.newCameraPosition(position))
         }
 
         map.addOnMapClickListener { point ->
@@ -235,6 +240,11 @@ class MapViewFragment: Fragment(), OnMapReadyCallback, PermissionsListener {
 
                 // Set the origin geopoint for getRoute
                 originPoint = Point.fromLngLat(this.lastKnownLocation!!.longitude, this.lastKnownLocation!!.latitude)
+
+               position = CameraPosition.Builder()
+                    .target(LatLng(originPoint.latitude(), originPoint.longitude()))
+                    .zoom(12.0)
+                    .build()
             }
         } else {
             permissionManager = PermissionsManager(this)
